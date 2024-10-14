@@ -1,8 +1,8 @@
-#include <Bitboard.h>
+#include <bitboard.h>
 
 int main() {
-    Bitboard bitboard = Bitboard();
-    bitboard.printBitboard();
+    bitboard bb = bitboard();
+    bb.print_bitboard();
 }
 
 
