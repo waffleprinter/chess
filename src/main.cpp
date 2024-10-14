@@ -1,8 +1,8 @@
-#include <iostream>
+#include <Bitboard.h>
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    Bitboard bitboard = Bitboard();
+    bitboard.printPieces();
 }
 
 
