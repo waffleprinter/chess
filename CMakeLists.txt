@@ -7,3 +7,5 @@ add_executable(chess src/main.cpp
         src/bitboardUtils.cpp
         headers/bitboardUtils.h
 )
+
+target_include_directories(chess PRIVATE ${CMAKE_SOURCE_DIR}/headers)
