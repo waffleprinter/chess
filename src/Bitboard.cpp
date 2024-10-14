@@ -34,7 +34,7 @@ void Bitboard::initializePieces() {
     pieces[11] = &blackKing;
 }
 
-void Bitboard::printPieces() {
+void Bitboard::printBitboard() {
     for (int rank = 7; rank >= 0; rank--) {
         for (int file = 0; file < 8; file++) {
             U64 square = 1ULL << (rank * 8 + file);

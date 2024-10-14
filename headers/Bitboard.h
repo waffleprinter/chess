@@ -29,7 +29,7 @@ public:
     Bitboard();
 
     void initializePieces();
-    void printPieces();
+    void printBitboard();
 };
 
 

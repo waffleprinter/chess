@@ -2,7 +2,7 @@
 
 int main() {
     Bitboard bitboard = Bitboard();
-    bitboard.printPieces();
+    bitboard.printBitboard();
 }
 
 
