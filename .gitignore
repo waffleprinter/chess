@@ -30,3 +30,19 @@
 *.exe
 *.out
 *.app
+
+# Ignore CLion-specific logs and config
+clion-debug-log.txt
+.idea/
+cmake-build-debug/
+cmake-build-release/
+
+# Ignore Ninja build files
+*.ninja
+.ninja_log
+.ninja_deps
+
+# Ignore CMake cache and build files
+CMakeFiles/
+CMakeCache.txt
+*.cmake
