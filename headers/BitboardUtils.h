@@ -5,7 +5,7 @@
 
 #define U64 uint64_t
 
-class bitboardUtils {
+class BitboardUtils {
 public:
     const static U64 notAFile = 0xfefefefefefefefe; // ~0x0101010101010101
     const static U64 notHFile = 0x7f7f7f7f7f7f7f7f; // ~0x8080808080808080
