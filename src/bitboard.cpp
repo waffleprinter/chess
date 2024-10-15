@@ -21,5 +21,4 @@ void bitboard::initialize_pieces() {
     piece_bitboard[black_king] =   0x1000000000000000;   // Black king on E8
 
     occupied_bitboard = piece_bitboard[white] | piece_bitboard[black];  // All pieces
-    empty_bitboard = ~occupied_bitboard;
 }
