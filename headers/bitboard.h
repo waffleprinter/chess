@@ -9,6 +9,8 @@
 class bitboard {
 private:
     u64 piece_bitboard[14];
+    u64 occupied_bitboard;
+    u64 empty_bitboard;
 
 public:
     enum enum_piece {
