@@ -8,28 +8,29 @@
 
 class bitboard {
 private:
-    u64 white_pawns;
-    u64 white_knights;
-    u64 white_bishops;
-    u64 white_rooks;
-    u64 white_queens;
-    u64 white_king;
-
-    u64 black_pawns;
-    u64 black_knights;
-    u64 black_bishops;
-    u64 black_rooks;
-    u64 black_queens;
-    u64 black_king;
-
-    // POSSIBLY UNNECESSARY
-    u64 *pieces[12];
+    u64 piece_bitboard[14];
 
 public:
+    enum enum_piece {
+        white        = 0,   // All white pieces
+        black        = 1,   // All black pieces
+        white_pawn   = 2,
+        black_pawn   = 3,
+        white_knight = 4,
+        black_knight = 5,
+        white_bishop = 6,
+        black_bishop = 7,
+        white_rook   = 8,
+        black_rook   = 9,
+        white_queen  = 10,
+        black_queen  = 11,
+        white_king   = 12,
+        black_king   = 13
+    };
+
     bitboard();
 
     void initialize_pieces();
-    void print_bitboard();
 };
 
 
