@@ -8,6 +8,8 @@ add_executable(chess src/main.cpp
         headers/bitboard_utils.h
         src/bitboard.cpp
         headers/bitboard.h
+        headers/move_gen.h
+        src/move_gen.cpp
 )
 
 target_include_directories(chess PRIVATE ${CMAKE_SOURCE_DIR}/headers)
