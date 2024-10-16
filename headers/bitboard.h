@@ -4,7 +4,7 @@
 #include <cstdint>
 #include <iostream>
 
-#define u64 uint64_t
+typedef uint64_t u64;
 
 class bitboard {
 private:
