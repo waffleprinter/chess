@@ -9,7 +9,7 @@ typedef uint64_t u64;
 
 class move_gen {
 private:
-    static std::array<u64, 64> generate_knight_moves() {
+    static std::array<u64, 64> generate_knight_lookup() {
         std::array<u64, 64> lookup = {};
         u64 knight_position = 0x0000000000000001;
 
@@ -31,8 +31,30 @@ private:
         return lookup;
     };
 
+    static std::array<u64, 64> generate_king_lookup() {
+        std::array<u64, 64> lookup = {};
+
+        for (int i = 0; i < 64; i++) {
+            u64 king_position = 1ULL << i;
+
+            u64 attacks = bitboard_utils::north_one(king_position);
+            attacks |= bitboard_utils::north_east_one(king_position);
+            attacks |= bitboard_utils::east_one(king_position);
+            attacks |= bitboard_utils::south_east_one(king_position);
+            attacks |= bitboard_utils::south_one(king_position);
+            attacks |= bitboard_utils::south_west_one(king_position);
+            attacks |= bitboard_utils::west_one(king_position);
+            attacks |= bitboard_utils::north_west_one(king_position);
+
+            lookup[i] = attacks;
+        }
+
+        return lookup;
+    };
+
 public:
     static std::array<u64, 64> knight_lookup;
+    static std::array<u64, 64> king_lookup;
 };
 
 #endif //CHESS_MOVE_GEN_H
