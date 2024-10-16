@@ -8,7 +8,7 @@
 typedef uint64_t u64;
 
 class move_gen {
-public:
+private:
     static std::array<u64, 64> generate_knight_moves() {
         std::array<u64, 64> lookup = {};
         u64 knight_position = 0x0000000000000001;
@@ -31,6 +31,7 @@ public:
         return lookup;
     };
 
+public:
     static std::array<u64, 64> knight_lookup;
 };
 
