@@ -2,8 +2,9 @@
 #define CHESS_BITBOARD_UTILS_H
 
 #include <cstdint>
+#include <iostream>
 
-#define u64 uint64_t
+typedef uint64_t u64;
 
 class bitboard_utils {
 public:
@@ -36,6 +37,19 @@ public:
     static u64 north_west_west(u64 bitboard) {return (bitboard << 6) & not_GH_file;}
     static u64 south_west_west(u64 bitboard) {return (bitboard >> 10) & not_GH_file;}
     static u64 south_south_west(u64 bitboard) {return (bitboard >> 17) & not_H_file ;}
+
+    static void print_bitboard(u64 bitboard) {
+        for (int rank = 7; rank >= 0; rank--) {
+            for (int file = 0; file < 8; file++) {
+                u64 square = 1ULL << (rank * 8 + file);
+
+                if (bitboard & square) std::cout << "1 ";
+                else std::cout << "0 ";
+            }
+
+            std::cout << '\n';
+        }
+    };
 };
 
 
