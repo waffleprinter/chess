@@ -6,8 +6,8 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(chess src/main.cpp
         src/bitboard_utils.cpp
         headers/bitboard_utils.h
-        src/bitboard.cpp
-        headers/bitboard.h
+        src/board.cpp
+        headers/board.h
         headers/move_gen.h
         src/move_gen.cpp
 )

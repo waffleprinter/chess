@@ -1,10 +1,10 @@
-#include "bitboard.h"
+#include "board.h"
 
-bitboard::bitboard() {
+board::board() {
     initialize_pieces();
 }
 
-void bitboard::initialize_pieces() {
+void board::initialize_pieces() {
     piece_bitboard[white] =        0x000000000000ffff;   // All white pieces on A1...H1 and A2...H2
     piece_bitboard[black] =        0xffff000000000000;   // All black pieces on A7...H7 and A8...H8
     piece_bitboard[white_pawn] =   0x000000000000ff00;   // White pawns on A2...H2

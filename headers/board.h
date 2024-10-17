@@ -1,12 +1,12 @@
-#ifndef CHESS_BITBOARD_H
-#define CHESS_BITBOARD_H
+#ifndef CHESS_BOARD_H
+#define CHESS_BOARD_H
 
 #include <cstdint>
 #include <iostream>
 
 typedef uint64_t u64;
 
-class bitboard {
+class board {
 private:
     u64 piece_bitboard[14]{};
     u64 occupied_bitboard{};
@@ -42,10 +42,10 @@ public:
 
 
 
-    bitboard();
+    board();
 
     void initialize_pieces();
 };
 
 
-#endif //CHESS_BITBOARD_H
+#endif //CHESS_BOARD_H
