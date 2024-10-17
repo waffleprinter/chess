@@ -12,6 +12,11 @@ private:
     u64 occupied_bitboard{};
 
 public:
+    enum enum_color {
+        WHITE = 0,
+        BLACK = 1
+    };
+
     enum enum_piece {
         white        = 0,   // All white pieces
         black        = 1,   // All black pieces
