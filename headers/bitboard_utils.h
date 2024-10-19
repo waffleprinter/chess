@@ -31,14 +31,14 @@ public:
     static u64 south_west_one(u64 bitboard) {return (bitboard >> 9) & not_H_file;}
 
     // Knight moves
-    static u64 north_north_east(u64 bitboard) {return (bitboard << 17) & not_A_file ;}
-    static u64 north_east_east(u64 bitboard)  {return (bitboard << 10) & not_AB_file;}
-    static u64 south_east_east(u64 bitboard)  {return (bitboard >> 6) & not_AB_file;}
-    static u64 south_south_east(u64 bitboard) {return (bitboard >> 15) & not_A_file ;}
-    static u64 north_north_west(u64 bitboard) {return (bitboard << 15) & not_H_file ;}
-    static u64 north_west_west(u64 bitboard)  {return (bitboard << 6) & not_GH_file;}
-    static u64 south_west_west(u64 bitboard)  {return (bitboard >> 10) & not_GH_file;}
-    static u64 south_south_west(u64 bitboard) {return (bitboard >> 17) & not_H_file ;}
+    static u64 north_north_east_one(u64 bitboard) {return (bitboard << 17) & not_A_file;}
+    static u64 north_east_east_one(u64 bitboard)  {return (bitboard << 10) & not_AB_file;}
+    static u64 south_east_east_one(u64 bitboard)  {return (bitboard >> 6) & not_AB_file;}
+    static u64 south_south_east_one(u64 bitboard) {return (bitboard >> 15) & not_A_file;}
+    static u64 north_north_west_one(u64 bitboard) {return (bitboard << 15) & not_H_file;}
+    static u64 north_west_west_one(u64 bitboard)  {return (bitboard << 6) & not_GH_file;}
+    static u64 south_west_west_one(u64 bitboard)  {return (bitboard >> 10) & not_GH_file;}
+    static u64 south_south_west_one(u64 bitboard) {return (bitboard >> 17) & not_H_file;}
 
     static void print_bitboard(u64 bitboard);
 };

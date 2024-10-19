@@ -55,15 +55,15 @@ std::array<u64, 64> move_gen::generate_knight_lookup() {
     for (int i = 0; i < 64; i++) {
         u64 knight_position = 1ULL << i;
 
-        u64 attacks = bitboard_utils::north_north_east(knight_position);
-        attacks |= bitboard_utils::north_east_east(knight_position);
-        attacks |= bitboard_utils::south_east_east(knight_position);
-        attacks |= bitboard_utils::south_south_east(knight_position);
+        u64 attacks = bitboard_utils::north_north_east_one(knight_position);
+        attacks |= bitboard_utils::north_east_east_one(knight_position);
+        attacks |= bitboard_utils::south_east_east_one(knight_position);
+        attacks |= bitboard_utils::south_south_east_one(knight_position);
 
-        attacks |= bitboard_utils::north_north_west(knight_position);
-        attacks |= bitboard_utils::north_west_west(knight_position);
-        attacks |= bitboard_utils::south_west_west(knight_position);
-        attacks |= bitboard_utils::south_south_west(knight_position);
+        attacks |= bitboard_utils::north_north_west_one(knight_position);
+        attacks |= bitboard_utils::north_west_west_one(knight_position);
+        attacks |= bitboard_utils::south_west_west_one(knight_position);
+        attacks |= bitboard_utils::south_south_west_one(knight_position);
 
         lookup[i] = attacks;
     }
