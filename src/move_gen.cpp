@@ -4,6 +4,23 @@ std::array<std::array<u64, 64>, 2> move_gen::pawn_attack_lookup = move_gen::gene
 std::array<u64, 64> move_gen::knight_lookup = move_gen::generate_knight_lookup();
 std::array<u64, 64> move_gen::king_lookup = move_gen::generate_king_lookup();
 
+u64 move_gen::get_pawn_pushes(board::enum_color color, board::enum_square square, u64 occupied) {
+    u64 pawn_position = 1ULL << square;
+
+    u64 single_push_targets = ~occupied;
+    u64 double_push_targets = ~occupied;
+
+    if (color == board::enum_color::WHITE) {
+        single_push_targets &= bitboard_utils::north_one(pawn_position);
+        double_push_targets &= bitboard_utils::north_one(single_push_targets) & (~occupied) & bitboard_utils::rank_4;
+    } else {
+        single_push_targets &= bitboard_utils::south_one(pawn_position);
+        double_push_targets &= bitboard_utils::south_one(single_push_targets) & (~occupied) & bitboard_utils::rank_5;
+    }
+
+    return single_push_targets | double_push_targets;
+}
+
 std::array<std::array<u64, 64>, 2> move_gen::generate_pawn_attack_lookup() {
     std::array<u64, 64> white_lookup = {};
 
@@ -75,5 +92,7 @@ std::array<u64, 64> move_gen::generate_king_lookup() {
 
     return lookup;
 }
+
+
 
 
