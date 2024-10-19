@@ -14,6 +14,10 @@ public:
     const static u64 not_AB_file = 0xfcfcfcfcfcfcfcfc; // ~0x0303030303030303
     const static u64 not_GH_file = 0x3f3f3f3f3f3f3f3f; // ~0xc0c0c0c0c0c0c0c0
 
+    // Ranks
+    const static u64 rank_4 = 0x00000000ff000000;
+    const static u64 rank_5 = 0x000000ff00000000;
+
     // Cardinal directions
     static u64 north_one(u64 bitboard) {return bitboard << 8;}
     static u64 south_one(u64 bitboard) {return bitboard >> 8;}
