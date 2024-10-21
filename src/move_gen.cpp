@@ -3,6 +3,8 @@
 std::array<std::array<u64, 64>, 2> move_gen::pawn_attack_lookup = move_gen::generate_pawn_attack_lookup();
 std::array<u64, 64> move_gen::knight_lookup = move_gen::generate_knight_lookup();
 std::array<u64, 64> move_gen::king_lookup = move_gen::generate_king_lookup();
+std::array<std::array<u64, 64>, 4> move_gen::orthogonal_lookup = move_gen::generate_orthogonal_lookup();
+
 
 u64 move_gen::get_pawn_pushes(board::enum_color color, board::enum_square square, u64 occupied) {
     u64 pawn_position = 1ULL << square;
@@ -91,6 +93,48 @@ std::array<u64, 64> move_gen::generate_king_lookup() {
     }
 
     return lookup;
+}
+
+std::array<std::array<u64, 64>, 4> move_gen::generate_orthogonal_lookup() {
+    u64 north = 0x0101010101010100;
+    std::array<u64, 64> north_lookup = {};
+    for (int i = 0; i < 64; i++) {
+        north_lookup[i] = north;
+        north <<= 1;
+    }
+
+    u64 east = 0x00000000000000fe;
+    std::array<u64, 64> east_lookup = {};
+    for (int file = 0; file < 8; file++) {
+        for (int rank = 0; rank < 8; rank++) {
+            east_lookup[rank * 8 + file] = east << (rank * 8);
+        }
+        east = (east & bitboard_utils::not_H_file) << 1;
+    }
+
+    u64 south = 0x0080808080808080;
+    std::array<u64, 64> south_lookup = {};
+    for (int i = 63; i >= 0; i--) {
+        south_lookup[i] = south;
+        south >>= 1;
+    }
+
+    u64 west = 0x000000000000007f;
+    std::array<u64, 64> west_lookup = {};
+    for (int file = 7; file >= 0; file--) {
+        for (int rank = 0; rank < 8; rank++) {
+            west_lookup[rank * 8 + file] = west << (rank * 8);
+        }
+        west = (west & bitboard_utils::not_A_file) >> 1;
+    }
+
+    std::array<std::array<u64, 64>, 4> lookup = {north_lookup, east_lookup, south_lookup, west_lookup};
+
+    return lookup;
+}
+
+std::array<std::array<u64, 64>, 4> move_gen::generate_diagonal_lookup() {
+    return std::array<std::array<u64, 64>, 4>();
 }
 
 
