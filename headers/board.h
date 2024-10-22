@@ -45,6 +45,17 @@ public:
         a8, b8, c8, d8, e8, f8, g8, h8
     };
 
+    enum enum_direction {
+        north,
+        north_east,
+        east,
+        south_east,
+        south,
+        south_west,
+        west,
+        north_west
+    };
+
 
 
     board();
